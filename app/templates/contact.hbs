@@ -1,1 +1,22 @@
-<h1>Contact Page</h1>
+<h1>聯絡我們</h1>
+
+<div class="contact-form row">
+  <div class="col-xs-10 col-xs-offset-1" style="margin-bottom: 1em;">
+    <p class="well">如果您有任何問題，請您留下您的訊息與聯絡方法，我們會盡快與您聯繫。</p>
+    {{input type="email" value=emailAddress class="form-control" placeholder="請輸入您的 Email" autofocus="autofocus"}}
+    <br>
+    {{textarea class="form-control" placeholder="請留下您的訊息。 （至少五個字）" rows="7" value=contactMessage}}
+  </div>
+
+  <div class="col-xs-10 col-xs-offset-1">
+    <button {{action 'sendMessage'}} disabled={{isDisabled}} class="btn btn-primary btn-lg btn-block">
+      {{fa-icon "send"}} 送出訊息
+    </button>
+  </div>
+</div>
+
+<br>
+
+{{#if responseMessage}}
+  <div class="alert alert-success">{{responseMessage}}</div>
+{{/if}}
