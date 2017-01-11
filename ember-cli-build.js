@@ -7,6 +7,9 @@ module.exports = function(defaults) {
     // Add options here
     sassOptions: {
       extension: 'sass'
+    },
+    'ember-font-awesome': {
+      useScss: true, // for ember-cli-sass
     }
   });
 
