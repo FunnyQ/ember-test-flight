@@ -12,10 +12,11 @@ export default Ember.Controller.extend({
     saveInvitation() {
       const email = this.get('emailAddress');
       const newInvitation = this.store.createRecord('invitation', { email: email });
-      newInvitation.save();
 
-      this.set('responseMessage', `感謝您，我們已經保留了您的聯絡方式。我們會將最新消息送到 ${email}`);
-      this.set('emailAddress', '');
+      newInvitation.save().then((response) => {
+        this.set('responseMessage', `感謝您，我們已經保留了您的聯絡方式。您的編號是：${response.get('id')}`);
+        this.set('emailAddress', '');
+      });
     }
   }
 });
