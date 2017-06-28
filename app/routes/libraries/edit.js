@@ -4,6 +4,15 @@ export default Ember.Route.extend({
   model(params) {
     return this.store.findRecord('library', params.id)
   },
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', '編輯資料');
+    controller.set('buttonLabel', '儲存變更');
+  },
+  renderTemplate() {
+    this.render('libraries/form');
+  },
 
   actions: {
     saveLibrary(library) {
