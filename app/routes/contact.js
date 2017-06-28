@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     sendMessage(newContact) {
       var responseMessage = `To: ${newContact.get('email')}, Message: ${newContact.get('message')}`
 
-      newContact.save().then((response) => {
+      newContact.save().then(() => {
         this.controller.set('model', this.model())
         this.controller.set('responseMessage', responseMessage)
       })
